@@ -1,10 +1,10 @@
 <?php
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
+// ini_set('display_errors', '1');
+// ini_set('display_startup_errors', '1');
+// error_reporting(E_ALL);
 
-if (empty($_POST['first_name'])) {
-    echo "<h1 > No data received! </h1>";
+if ($_POST['verification_code']!=="Sh68Sa") {
+    echo "<h1 >wrong verification_code  </h1>";
     exit();
 }
 $first_name = ($_POST['first_name']);
@@ -14,6 +14,7 @@ $gender = ($_POST['gender']);
 $skills = ($_POST['skills']) ?$_POST['skills'] : ["None"];
 
 $title = ($gender == "Male") ? "Mr." : "Miss";
+
 
 echo '
     <div class="container mt-5">
