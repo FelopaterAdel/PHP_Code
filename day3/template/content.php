@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Profile Picture</label>
-                <input type="file" name="profile_picture" class="form-control">
+                <input type="file" name="Image" class="form-control">
             </div>
             <button type="submit"  name="submit"  class="btn btn-primary">Save</button>
             <button type="reset" class="btn btn-secondary">Reset</button>

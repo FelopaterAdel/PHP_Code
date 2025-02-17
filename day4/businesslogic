@@ -1,0 +1,23 @@
+<?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
+function getallintakes()
+{
+    //mysqli proced.
+        // $sql='select * from intake ';
+        // $res=SelectOperation($sql);
+        // return $res;
+    //mysqli oop
+        // $res=select('intake','*');    
+        // return $res;
+    // //pdo
+    $res=mySelect('intake');
+    return $res;
+
+
+}
+
+
+?>

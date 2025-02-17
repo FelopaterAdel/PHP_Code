@@ -4,7 +4,8 @@ session_start();
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
-if(isset($_POST['submit'])){
+
+
 $admin=['felopateradel73@gmail.com','123'];
 if($_POST['email']==$admin[0]&& 
 $_POST['password']==$admin[1])
@@ -12,10 +13,9 @@ $_POST['password']==$admin[1])
     $_SESSION['email'] = $_POST['email'];
     header("Location: addUser.php");
     exit();
+}else{
+    $error = "Invalid email or password!";
 }
- else{
-     $error = "Invalid email or password!";
-}}
 ?>
 
 
@@ -46,7 +46,7 @@ $_POST['password']==$admin[1])
                     <label class="form-label">Password</label>
                     <input type="password" name="password" class="form-control" required>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
                 <div class="text-center mt-2">
                     <a href="#">Forgot Password?</a>
                 </div>
