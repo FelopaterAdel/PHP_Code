@@ -1,22 +1,40 @@
 <?php
+include_once('database.php');
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-function getallintakes()
+
+
+
+function insertcustomer($name,$Email,$password,$ext,$room_no)
 {
-    //mysqli proced.
-        // $sql='select * from intake ';
-        // $res=SelectOperation($sql);
-        // return $res;
-    //mysqli oop
-        // $res=select('intake','*');    
-        // return $res;
-    // //pdo
-    $res=mySelect('intake');
+    $res=myinsert('customer',['name','Email','password','Ext','room_no'],
+    [$name,$Email,$password,$ext,$room_no]);
+    if($res>0)
+    {return '<div><h1>customer added</h1></div>';}
+    else
+    {return '<div><h1>Error while Customer adding </h1></div>';}
+}
+function getAllCustomer(){
+
+    $res=mySelect('customer');
     return $res;
+}
+function getAllRoom(){
 
+    $res=mySelect('room');
+    return $res;
+}
+function updateCustomer(){
 
+    $res=myupdate('customer');
+    return $res;
+}
+function deleteCustomer(){
+
+    $res=mydelete('customer');
+    return $res;
 }
 
 
