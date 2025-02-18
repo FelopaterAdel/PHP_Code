@@ -18,8 +18,6 @@ $_POST['password']==$admin[1])
 }
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

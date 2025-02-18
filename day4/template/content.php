@@ -1,6 +1,6 @@
 <div class="container mt-4">
         <h2>Add User</h2>
-        <form  method="POST" enctype="multipart/form-data">
+        <form action="list_cutomer.php" method="POST" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" required>
