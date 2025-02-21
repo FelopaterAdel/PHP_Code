@@ -25,14 +25,15 @@ $userser = new UserService('localhost', 'useradd', 'felopater', 'Felo6262#');
         </div>
         <div class="mb-3">
             <label class="form-label">Room No.</label>
-            <select name="room" class="form-control" required>
-                <?php
-                $rooms = $userser->getAllRoom();
-                foreach($rooms as $room) {
-                    echo "<option value='{$room['room_no']}'>{$room['room_no']}</option>";
-                }
-                ?>
-            </select>
+            <select name="room_no" required>
+    <option value="">Select Room</option> 
+    <option value="2005">Room 2005</option>
+    <option value="2060">Room 2060</option>
+    <option value="2070">Room 2070</option>
+    <option value="2090">Room 2090</option>
+    <option value="2080">Room 2080</option>
+v
+</select>
         </div>
         <div class="mb-3">
             <label class="form-label">Ext.</label>
