@@ -7,15 +7,24 @@ error_reporting(E_ALL);
 
 
 $admin=['felopateradel73@gmail.com','123'];
-if($_POST['email']==$admin[0]&& 
-$_POST['password']==$admin[1])
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+if($_POST['email']==$admin[0] && $_POST['password']==$admin[1])
 {
-    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['error'] ="";
     header("Location: addUser.php");
     exit();
-}else{
-    $error = "Invalid email or password!";
 }
+
+else{
+  $_SESSION['error'] ="Invalid email or password!";
+  header("Location: " . $_SERVER['PHP_SELF']); 
+  exit();
+   }
+}
+$error = $_SESSION['error']?? "";
+unset($_SESSION['error']);
 ?>
 
 <!DOCTYPE html>
@@ -31,8 +40,8 @@ $_POST['password']==$admin[1])
         <div class="card p-4 shadow" style="width: 350px;">
             <h2 class="text-center">Cafeteria</h2>
 
-            <?php if (isset($error)) : ?>
-                <div class="alert alert-danger text-center"><?= $error; ?></div>
+            <?php if (!empty($error)) : ?>
+                <div class="alert alert-danger text-center"><?= $error;  ?></div>
             <?php endif; ?>
 
             <form action="" method="POST">
