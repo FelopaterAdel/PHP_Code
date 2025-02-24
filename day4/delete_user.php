@@ -5,11 +5,10 @@ include('blogic.php');
 
 if(isset($_GET['id'])) {
 $id =$_GET['id'];
-// $request = $_SERVER["REQUEST_METHOD"];
-// print_r($request);
 
 
-$userser = new UserService('localhost', 'useradd', 'felopater', 'Felo6262#');
+
+$userser = new UserService();
 $userser->deleteUser($id);
 
 echo'

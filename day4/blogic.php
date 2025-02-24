@@ -7,10 +7,8 @@ error_reporting(E_ALL);
 
 
 class UserService extends Database {
-    public function __construct($host, $database, $username, $password) {
-        parent::__construct($host, $database, $username, $password);
-    }
 
+    
     public function insertUser($name, $email, $password, $ext, $room_no, $image) {
         try {
             $hashed_password = password_hash($password, PASSWORD_BCRYPT);
@@ -32,16 +30,17 @@ class UserService extends Database {
         return $this->select('user');
     }
 
+    public function getUserById($id) {
+        $condition =['id'=>$id];
+        return $this->select('user',$condition);
+    }
     public function getAllRoom() {
         return $this->select('room');
     }
 
     public function updateUser($id, $columns, $values) {
-        $condition = "id = :id";
-        $params = array_combine($columns, $values);
-        $params['id'] = $id;
-
-        $res = $this->update('user', $columns, $values, $condition);
+        $condition = "id = $id";
+        $res = $this->UPDATE('user', $columns, $values, $condition);
         return $res > 0 ? '<div><h1>User updated</h1></div>' : '<div><h1>Error updating user</h1></div>';
     }
 

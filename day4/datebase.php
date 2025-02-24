@@ -4,7 +4,9 @@ include_once('config.php');
 class Database {
     private $pdo;
 
-    public function __construct($host, $database, $username, $password) {
+    public function __construct() {
+        
+        global $pdo,$host,$database,$password,$username;
         $dsn = "mysql:host=$host;dbname=$database;charset=utf8mb4";
         try {
             $this->pdo = new PDO($dsn, $username, $password);
