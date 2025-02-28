@@ -29,7 +29,8 @@ if(isset($_GET['id'])) {
             $errors[] = "Invalid file type. Only JPG, PNG, and GIF are allowed.";
         } else {
             $file_extension = pathinfo($_FILES['Image']['name'], PATHINFO_EXTENSION);
-            $image_path = 'imgs/' . $file_extension;
+            $unique_filename = uniqid() . '.' . $file_extension;
+            $image_path = 'imgs/' . $unique_filename;
 
             
             if (!move_uploaded_file($_FILES['Image']['tmp_name'], $image_path)) {

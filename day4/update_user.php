@@ -8,7 +8,7 @@ if(isset($_GET['id'])) {
 
 $userobj=new UserService();
   $user =$userobj->getUserById($id);
-  //var_dump($user);
+  var_dump($user);
  $name =array_column($user,'name');
  $email =array_column($user,'email');
  $ext =array_column($user,'ext');
